@@ -11,7 +11,7 @@ function Challenge4({ completeChallenge, completedChallenges }) {
   const navigate = useNavigate();
 
   const correctAnswer = 'DECRYPTION';
-  const encryptedMessage = 'IGVETRVKQP';
+  const encryptedMessage = 'FMRYCGVQDU';
   const key = 'CIPHER';
   const extraHelpPassword = 'hackaton';
 
