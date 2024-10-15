@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 import './Dashboard.css';
 import lanewayLogo from "../assets/laneway-logo-white.svg";
 
-function Dashboard({ user }) {
+function Dashboard({ userName, completedChallenges, handleLogout }) {
+  const firstName = userName.split(' ')[0];
+
   return (
     <div className="dashboard-container">
-        <div></div>
+      <div></div>
       <div className="dashboard-content">
         <h1 className="main-title">Cybersecurity Hackathon</h1>
         <div className="dashboard-inner">
-          <h2 className="welcome-message">Welcome, {user}!</h2>
+          <h2 className="welcome-message">Welcome, {firstName}!</h2>
           <h3 className="challenges-title">Challenges:</h3>
           <ul className="challenge-list">
             <li><Link to="/challenge1" className="challenge-link">Challenge 1: Deciphering a code</Link></li>
@@ -20,6 +22,7 @@ function Dashboard({ user }) {
             <li><Link to="/challenge5" className="challenge-link">Challenge 5: Capture the Flag (CTF) Final Challenge</Link></li>
           </ul>
           <Link to="/progress" className="progress-link">View Progress</Link>
+          <button onClick={handleLogout} className="logout-button">Logout</button>
         </div>
       </div>
       <footer className="footer">

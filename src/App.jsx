@@ -20,6 +20,7 @@ function AppContent() {
 
   useEffect(() => {
     const auth = checkAuth()
+    console.log(auth)
     setIsAuthenticated(auth.isAuthenticated)
     setUser(auth.user)
     const storedCompletedChallenges = JSON.parse(localStorage.getItem('completedChallenges') || '[]')
@@ -32,6 +33,7 @@ function AppContent() {
     setUser(null)
     setCompletedChallenges([])
     localStorage.removeItem('completedChallenges')
+    navigate('/login')
   }
 
   const handleDashboard = () => {
@@ -64,7 +66,7 @@ function AppContent() {
           isAuthenticated ? <Navigate to="/dashboard" /> : <Login setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
         } />
         <Route path="/dashboard" element={
-          isAuthenticated ? <Dashboard user={user} completedChallenges={completedChallenges} /> : <Navigate to="/login" />
+          isAuthenticated ? <Dashboard userName={user} completedChallenges={completedChallenges} handleLogout={handleLogout} /> : <Navigate to="/login" />
         } />
         <Route path="/challenge1" element={
           isAuthenticated ? <Challenge1 completeChallenge={completeChallenge} completedChallenges={completedChallenges} /> : <Navigate to="/login" />
