@@ -11,7 +11,7 @@ function Challenge1({ completeChallenge, completedChallenges }) {
   const navigate = useNavigate();
 
   const correctAnswer = 'CYBERSECURITY';
-  const encryptedMessage = 'FBEHUIHFKUJWB';
+  const encryptedMessage = 'FBEHUVHFXULWB';
   const extraHelpPassword = 'help1';
 
   useEffect(() => {
