@@ -20,6 +20,7 @@ function Dashboard({ userName, completedChallenges, handleLogout }) {
             <li><Link to="/challenge3" className="challenge-link">Challenge 3: Vulnerability Scanning Simulation</Link></li>
             <li><Link to="/challenge4" className="challenge-link">Challenge 4: File Decryption</Link></li>
             <li><Link to="/challenge5" className="challenge-link">Challenge 5: Capture the Flag (CTF) Final Challenge</Link></li>
+            <li><Link to="/challenge6" className="challenge-link">Challenge 6: The Ultimate Cybersecurity Test</Link></li>
           </ul>
           <Link to="/progress" className="progress-link">View Progress</Link>
           <button onClick={handleLogout} className="logout-button">Logout</button>

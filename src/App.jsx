@@ -7,6 +7,7 @@ import Challenge2 from './components/Challenge2'
 import Challenge3 from './components/Challenge3'
 import Challenge4 from './components/Challenge4'
 import Challenge5 from './components/Challenge5'
+import Challenge6 from './components/Challenge6'
 import Progress from './components/Progress'
 import { checkAuth, logout } from './services/authService'
 import './App.css'
@@ -82,6 +83,9 @@ function AppContent() {
         } />
         <Route path="/challenge5" element={
           isAuthenticated ? <Challenge5 completeChallenge={completeChallenge} completedChallenges={completedChallenges} /> : <Navigate to="/login" />
+        } />
+        <Route path="/challenge6" element={
+          isAuthenticated ? <Challenge6 completeChallenge={completeChallenge} completedChallenges={completedChallenges} /> : <Navigate to="/login" />
         } />
         <Route path="/progress" element={
           isAuthenticated ? <Progress completedChallenges={completedChallenges} /> : <Navigate to="/login" />

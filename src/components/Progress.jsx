@@ -8,6 +8,7 @@ function Progress({ completedChallenges }) {
     { id: 3, name: 'Vulnerability Scanning Simulation' },
     { id: 4, name: 'File Decryption' },
     { id: 5, name: 'Capture the Flag (CTF) Final Challenge' },
+    { id: 6, name: 'The Ultimate Cybersecurity Test' },
   ];
 
   return (

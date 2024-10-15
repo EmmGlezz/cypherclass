@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function ProgressBar({ currentChallenge, completedChallenges }) {
-  const challenges = [1, 2, 3, 4, 5];
+  const challenges = [1, 2, 3, 4, 5, 6];
 
   return (
     <div className="progress-bar">
@@ -20,4 +20,3 @@ function ProgressBar({ currentChallenge, completedChallenges }) {
 }
 
 export default ProgressBar;
-
