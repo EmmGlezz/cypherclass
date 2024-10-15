@@ -8,8 +8,8 @@ function Challenge6({ completeChallenge, completedChallenges }) {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
-  const correctAnswer = 'THEULTIMATECYBERSECURITYMASTER';
-  const encryptedMessage = 'Wkh Xowlpdwh Fkdoohqjh: 20-8-5-21-12-20-9-13-1-20-5-3-25-2-5-18-19-5-3-21-18-9-20-25-13-1-19-20-5-18';
+  const correctAnswer = 'THEULTIMATECHALLENGE: THEULTIMATECYBERSECURITYMASTER';
+  const encryptedMessage = 'Hku Bkwjadjl Bkbzouufh: 5-8-18-25-8-20-7-24-1-7-9-25-25-26-16-18-6-9-25-21-16-20-20-12-17-23-19-18-16-18';
   const key = 'LANEWAY';
 
   useEffect(() => {
