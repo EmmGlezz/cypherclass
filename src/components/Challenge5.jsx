@@ -11,7 +11,7 @@ function Challenge5({ completeChallenge, completedChallenges }) {
   const navigate = useNavigate();
 
   const correctAnswer = 'THEFINALCHALLENGE';
-  const encryptedMessage = '20-8-5 6-9-14-1-12 3-8-1-12-12-5-14-7-5';
+  const encryptedMessage = '21-9-6-7-10-15-2-13-4-9-2-13-13-6-15-8-6';
   const extraHelpPassword = 'almostThere';
 
   useEffect(() => {
