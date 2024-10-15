@@ -1,0 +1,92 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    background-image: url('../assets/hacker.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .dashboard-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-inner {
+    text-align: left;
+  }
+  
+  .welcome-message {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .challenges-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .challenge-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .challenge-link {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .challenge-link:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .progress-link {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .progress-link:hover {
+    background-color: #45a049;
+  }
+  
+  .footer {
+    margin-top: 30px;
+    padding: 20px;
+  }
+  
+  .laneway-logo {
+    width: 200px;
+  }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate, useLocation } from 'react-router-dom'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 import Challenge1 from './components/Challenge1'
@@ -16,6 +16,7 @@ function AppContent() {
   const [user, setUser] = useState(null)
   const [completedChallenges, setCompletedChallenges] = useState([])
   const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const auth = checkAuth()
@@ -47,15 +48,17 @@ function AppContent() {
 
   return (
     <div className="App">
-      <header>
-        <h1>Cybersecurity Hackathon</h1>
-        {isAuthenticated && (
-          <>
-            <button onClick={handleDashboard}>Dashboard</button>
-            <button onClick={handleLogout}>Logout</button>
-          </>
-        )}
-      </header>
+      {location.pathname !== '/login' && (
+        <header>
+          <h1>Cybersecurity Hackathon</h1>
+          {isAuthenticated && (
+            <>
+              <button onClick={handleDashboard}>Dashboard</button>
+              <button onClick={handleLogout}>Logout</button>
+            </>
+          )}
+        </header>
+      )}
       <Routes>
         <Route path="/login" element={
           isAuthenticated ? <Navigate to="/dashboard" /> : <Login setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
