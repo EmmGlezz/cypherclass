@@ -6,10 +6,13 @@ import './Challenge.css';
 function Challenge5({ completeChallenge, completedChallenges }) {
   const [answer, setAnswer] = useState('');
   const [message, setMessage] = useState('');
+  const [helpPassword, setHelpPassword] = useState('');
+  const [showExtraHelp, setShowExtraHelp] = useState(false);
   const navigate = useNavigate();
 
   const correctAnswer = 'THEFINALCHALLENGE';
   const encryptedMessage = '20-8-5 6-9-14-1-12 3-8-1-12-12-5-14-7-5';
+  const extraHelpPassword = 'almostThere';
 
   useEffect(() => {
     if (completedChallenges.includes(5)) {
@@ -27,6 +30,15 @@ function Challenge5({ completeChallenge, completedChallenges }) {
       }, 3000);
     } else {
       setMessage('Try Again');
+    }
+  };
+
+  const handleExtraHelp = (e) => {
+    e.preventDefault();
+    if (helpPassword === extraHelpPassword) {
+      setShowExtraHelp(true);
+    } else {
+      setMessage('Incorrect password for extra help');
     }
   };
 
@@ -50,7 +62,19 @@ function Challenge5({ completeChallenge, completedChallenges }) {
         <div className="extra-help">
           <details>
             <summary>Need more help?</summary>
-            <p>After decoding A1Z26, you'll get a phrase that's still encoded with a Caesar cipher (shift of 1).</p>
+            {!showExtraHelp ? (
+              <form onSubmit={handleExtraHelp}>
+                <input
+                  type="text"
+                  value={helpPassword}
+                  onChange={(e) => setHelpPassword(e.target.value)}
+                  placeholder="Enter password for extra help"
+                />
+                <button type="submit">Submit</button>
+              </form>
+            ) : (
+              <p>After decoding A1Z26, you'll get a phrase that's still encoded with a Caesar cipher (shift of 1).</p>
+            )}
           </details>
         </div>
         <form onSubmit={handleSubmit} className="challenge-form">

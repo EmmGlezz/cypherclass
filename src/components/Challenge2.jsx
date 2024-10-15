@@ -6,10 +6,13 @@ import './Challenge.css';
 function Challenge2({ completeChallenge, completedChallenges }) {
   const [answer, setAnswer] = useState('');
   const [message, setMessage] = useState('');
+  const [helpPassword, setHelpPassword] = useState('');
+  const [showExtraHelp, setShowExtraHelp] = useState(false);
   const navigate = useNavigate();
 
   const correctAnswer = 'ENCRYPTION';
   const encryptedMessage = 'RAPELCGVBA';
+  const extraHelpPassword = 'lanewayStudents';
 
   useEffect(() => {
     if (completedChallenges.includes(2)) {
@@ -30,6 +33,15 @@ function Challenge2({ completeChallenge, completedChallenges }) {
     }
   };
 
+  const handleExtraHelp = (e) => {
+    e.preventDefault();
+    if (helpPassword === extraHelpPassword) {
+      setShowExtraHelp(true);
+    } else {
+      setMessage('Incorrect password for extra help');
+    }
+  };
+
   return (
     <div className="challenge-container">
       <ProgressBar currentChallenge={2} completedChallenges={completedChallenges} />
@@ -46,6 +58,24 @@ function Challenge2({ completeChallenge, completedChallenges }) {
         </div>
         <div className="tip-box">
           <p>Tip: You can use an online ROT13 decoder to check your work, but try to solve it manually first!</p>
+        </div>
+        <div className="extra-help">
+          <details>
+            <summary>Need more help?</summary>
+            {!showExtraHelp ? (
+              <form onSubmit={handleExtraHelp}>
+                <input
+                  type="text"
+                  value={helpPassword}
+                  onChange={(e) => setHelpPassword(e.target.value)}
+                  placeholder="Enter password for extra help"
+                />
+                <button type="submit">Submit</button>
+              </form>
+            ) : (
+              <p>The first letter 'R' decrypts to 'E', the second letter 'A' decrypts to 'N', and so on.</p>
+            )}
+          </details>
         </div>
         <form onSubmit={handleSubmit} className="challenge-form">
           <input

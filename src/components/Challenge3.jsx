@@ -6,10 +6,13 @@ import './Challenge.css';
 function Challenge3({ completeChallenge, completedChallenges }) {
   const [answer, setAnswer] = useState('');
   const [message, setMessage] = useState('');
+  const [helpPassword, setHelpPassword] = useState('');
+  const [showExtraHelp, setShowExtraHelp] = useState(false);
   const navigate = useNavigate();
 
   const correctAnswer = 'CRYPTOGRAPHY';
   const encryptedMessage = '3-18-25-16-20-15-7-18-1-16-8-25';
+  const extraHelpPassword = 'chocolatePudding';
 
   useEffect(() => {
     if (completedChallenges.includes(3)) {
@@ -27,6 +30,15 @@ function Challenge3({ completeChallenge, completedChallenges }) {
       }, 2000);
     } else {
       setMessage('Try Again');
+    }
+  };
+
+  const handleExtraHelp = (e) => {
+    e.preventDefault();
+    if (helpPassword === extraHelpPassword) {
+      setShowExtraHelp(true);
+    } else {
+      setMessage('Incorrect password for extra help');
     }
   };
 
@@ -50,7 +62,19 @@ function Challenge3({ completeChallenge, completedChallenges }) {
         <div className="extra-help">
           <details>
             <summary>Need more help?</summary>
-            <p>The first letter is 'C' (3), and the last letter is 'Y' (25).</p>
+            {!showExtraHelp ? (
+              <form onSubmit={handleExtraHelp}>
+                <input
+                  type="text"
+                  value={helpPassword}
+                  onChange={(e) => setHelpPassword(e.target.value)}
+                  placeholder="Enter password for extra help"
+                />
+                <button type="submit">Submit</button>
+              </form>
+            ) : (
+              <p>The first letter is 'C' (3), and the last letter is 'Y' (25).</p>
+            )}
           </details>
         </div>
         <form onSubmit={handleSubmit} className="challenge-form">
